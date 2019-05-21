@@ -1,0 +1,53 @@
+version: '2.2'
+
+services:
+  openhab:
+    image: "openhab/openhab:2.4.0"
+    container_name: openhab
+    restart: always
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezone:ro"
+      - "./openhab_addons:/openhab/addons"
+      - "./openhab_conf:/openhab/conf"
+      - "./openhab_userdata:/openhab/userdata"
+    environment:
+      OPENHAB_HTTP_PORT: "8080"
+      OPENHAB_HTTPS_PORT: "8443"
+      EXTRA_JAVA_OPTS: "-Duser.timezone=Europe/Berlin"
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+  influxdb:
+    image: influxdb:latest
+    container_name: influxdb
+    ports:
+    - "8083:8083"
+    - "8086:8086"
+    - "8090:8090"
+    - "25826:25826/udp"
+    - "2003:2003"
+    env_file:
+      # Check the file to set default password!
+      - "./env.influxdb"
+    volumes:
+    - "./influxdb/data:/var/lib/influxdb/"
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+    - "3000:3000"
+    env_file:
+    - "./env.grafana"
+    links:
+    - influxdb
+    volumes:
+    - "./grafana/data:/var/lib/grafana/"
+  nodered:
+    image: nodered/node-red-docker:latest
+    container_name: nodered
+    user: root
+    ports:
+    - "1880:1880"
+    volumes:
+    - ./nodered:/data
