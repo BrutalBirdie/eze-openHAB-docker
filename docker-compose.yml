@@ -8,9 +8,9 @@ services:
     volumes:
       - "/etc/localtime:/etc/localtime:ro"
       - "/etc/timezone:/etc/timezone:ro"
-      - "./openhab_addons:/openhab/addons"
-      - "./openhab_conf:/openhab/conf"
-      - "./openhab_userdata:/openhab/userdata"
+      - "${PWD}/openhab_addons:/openhab/addons"
+      - "${PWD}/openhab_conf:/openhab/conf"
+      - "${PWD}/openhab_userdata:/openhab/userdata"
     environment:
       OPENHAB_HTTP_PORT: "8080"
       OPENHAB_HTTPS_PORT: "8443"
@@ -30,9 +30,9 @@ services:
     - "2003:2003"
     env_file:
       # Check the file to set default password!
-      - "./env.influxdb"
+      - "${PWD}/env.influxdb"
     volumes:
-    - "./influxdb/data:/var/lib/influxdb/"
+    - "${PWD}/influxdb/data:/var/lib/influxdb/"
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
@@ -40,11 +40,11 @@ services:
     ports:
     - "3000:3000"
     env_file:
-    - "./env.grafana"
+    - "${PWD}/env.grafana"
     links:
     - influxdb
     volumes:
-    - "./grafana/data:/var/lib/grafana/"
+    - "${PWD}/grafana/data:/var/lib/grafana/"
   nodered:
     image: nodered/node-red-docker:latest
     container_name: nodered
@@ -54,3 +54,14 @@ services:
     - "1880:1880"
     volumes:
     - ./nodered:/data
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: mosquitto
+    restart: always
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - "${PWD}/mosquitto/conf:/mosquitto/config/"
+      - "${PWD}/mosquitto/data/:/mosquitto/data/"
+      - "${PWD}/mosquitto/log/:/mosquitto/log/"
