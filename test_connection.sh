@@ -20,5 +20,14 @@ echo "| Testing connection from Influxdb to grafana |"
 echo "______________________________________________"
 echo ""
 echo ""
+sleep 1
 docker exec -it influxdb /bin/ping grafana -c 4
-
+echo ""
+echo ""
+echo "_________________________________________________"
+echo "| Testing connection from Influxdb to mosquitto |"
+echo "_________________________________________________"
+echo ""
+echo ""
+sleep 1
+docker exec -it influxdb /bin/ping mosquitto -c 4
