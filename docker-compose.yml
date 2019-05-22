@@ -21,6 +21,7 @@ services:
   influxdb:
     image: influxdb:latest
     container_name: influxdb
+    restart: always
     ports:
     - "8083:8083"
     - "8086:8086"
@@ -35,6 +36,7 @@ services:
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
+    restart: always
     ports:
     - "3000:3000"
     env_file:
@@ -46,6 +48,7 @@ services:
   nodered:
     image: nodered/node-red-docker:latest
     container_name: nodered
+    restart: always
     user: root
     ports:
     - "1880:1880"
