@@ -13,22 +13,6 @@ This Docker setup contains:
 
 ____
 
-The containers can be reached by their names.
-
-Names:
-
-* openhab
-* influxdb
-* grafana
-* nodered
-
-Example:
-
-if you would want to connect openHAB to the influxdb in the config file it would look like this
-url=http://influxdb:8086
-or Grafana
-host = http://influxdb:8086
-
 ## Helper Scripts
 
 ### Docker:
