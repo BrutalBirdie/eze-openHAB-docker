@@ -1,10 +1,11 @@
-version: '2.2'
+version: '2.0'
 
 services:
   openhab:
     image: "openhab/openhab:2.4.0"
     container_name: openhab
     restart: always
+    network_mode: host
     volumes:
       - "/etc/localtime:/etc/localtime:ro"
       - "/etc/timezone:/etc/timezone:ro"
@@ -22,6 +23,7 @@ services:
     image: influxdb:latest
     container_name: influxdb
     restart: always
+    network_mode: host
     ports:
     - "8083:8083"
     - "8086:8086"
@@ -37,18 +39,18 @@ services:
     image: grafana/grafana:latest
     container_name: grafana
     restart: always
+    network_mode: host
     ports:
     - "3000:3000"
     env_file:
     - "${PWD}/env.grafana"
-    links:
-    - influxdb
     volumes:
     - "${PWD}/grafana/data:/var/lib/grafana/"
   nodered:
     image: nodered/node-red-docker:latest
     container_name: nodered
     restart: always
+    network_mode: host
     user: root
     ports:
     - "1880:1880"
@@ -58,6 +60,7 @@ services:
     image: eclipse-mosquitto:latest
     container_name: mosquitto
     restart: always
+    network_mode: host
     ports:
       - "1883:1883"
       - "9001:9001"
