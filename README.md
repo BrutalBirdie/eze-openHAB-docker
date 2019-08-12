@@ -10,6 +10,7 @@ This Docker setup contains:
 * InfluxDB Latest
 * Grafana  Latest
 * node-RED Latest
+* mosquitto
 
 ## Note
 There is an rpi branch for RaspBerry Pi.
