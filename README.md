@@ -11,6 +11,9 @@ This Docker setup contains:
 * Grafana  Latest
 * node-RED Latest
 * mosquitto
+## Requirements
+* [Docker](https://docs.docker.com/)
+* [Docker Compose](https://docs.docker.com/compose/)
 
 ## Note
 There is an rpi branch for RaspBerry Pi.
