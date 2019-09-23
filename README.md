@@ -33,4 +33,4 @@ The main diffrence is that node-red needs a different docker container for rpi.
 * influx_cli.sh   | Opens influxdb with openhab_db as default db
 
 
-If there are problem or question please post them :)
+If there are problems or questions please post them :)
