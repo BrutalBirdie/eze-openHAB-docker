@@ -18,7 +18,6 @@ This Docker setup contains:
 ## Note
 There is an rpi branch for RaspBerry Pi.
 The main diffrence is that node-red needs a different docker container for rpi.
-____
 
 ## Helper Scripts
 
