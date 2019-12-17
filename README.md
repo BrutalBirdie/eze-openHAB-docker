@@ -6,11 +6,12 @@ The goal was to create an easy to use setup with helper scripts.
 
 This Docker setup contains:
 
-* openHAB 2.4.0
+* openHAB 2.5.0
 * InfluxDB Latest
 * Grafana  Latest
 * node-RED Latest
 * mosquitto
+
 ## Requirements
 * [Docker](https://docs.docker.com/)
 * [Docker Compose](https://docs.docker.com/compose/)
