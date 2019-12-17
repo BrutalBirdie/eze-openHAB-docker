@@ -43,7 +43,6 @@ services:
     ports:
       - "3000:3000"
     env_file:
-    - "${PWD}/env.grafana"
       - "${PWD}/env.grafana"
     volumes:
       - "${PWD}/grafana/data:/var/lib/grafana/"
