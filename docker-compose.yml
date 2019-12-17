@@ -1,8 +1,8 @@
-version: '2.0'
+version: "2.2"
 
 services:
   openhab:
-    image: "openhab/openhab:2.4.0"
+    image: "openhab/openhab:2.5.0"
     container_name: openhab
     restart: always
     network_mode: host
@@ -25,37 +25,40 @@ services:
     restart: always
     network_mode: host
     ports:
-    - "8083:8083"
-    - "8086:8086"
-    - "8090:8090"
-    - "25826:25826/udp"
-    - "2003:2003"
+      - "8083:8083"
+      - "8086:8086"
+      - "8090:8090"
+      - "25826:25826/udp"
+      - "2003:2003"
     env_file:
       # Check the file to set default password!
       - "${PWD}/env.influxdb"
     volumes:
-    - "${PWD}/influxdb/data:/var/lib/influxdb/"
+      - "${PWD}/influxdb/data:/var/lib/influxdb/"
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
     restart: always
     network_mode: host
     ports:
-    - "3000:3000"
+      - "3000:3000"
     env_file:
     - "${PWD}/env.grafana"
+      - "${PWD}/env.grafana"
     volumes:
-    - "${PWD}/grafana/data:/var/lib/grafana/"
+      - "${PWD}/grafana/data:/var/lib/grafana/"
   nodered:
+    # If you are running on RaspBerryPi change the image to
+    # nodered/node-red-docker:rpi
     image: nodered/node-red-docker:latest
     container_name: nodered
     restart: always
     network_mode: host
     user: root
     ports:
-    - "1880:1880"
+      - "1880:1880"
     volumes:
-    - ./nodered:/data
+      - ./nodered:/data
   mosquitto:
     image: eclipse-mosquitto:latest
     container_name: mosquitto
@@ -64,6 +67,7 @@ services:
     ports:
       - "1883:1883"
       - "9001:9001"
+
     volumes:
       - "${PWD}/mosquitto/conf:/mosquitto/config/"
       - "${PWD}/mosquitto/data/:/mosquitto/data/"
