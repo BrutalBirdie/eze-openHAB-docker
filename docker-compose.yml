@@ -40,6 +40,7 @@ services:
     container_name: grafana
     restart: always
     network_mode: host
+    user: "${UID}:${GID}"
     ports:
       - "3000:3000"
     env_file:
