@@ -1,6 +1,6 @@
 # eze openHAB Docker Setup
 
-![openHAB logo](https://www.openhab.org/logo-white.png)
+![openHAB logo](https://www.openhab.org/openhab-logo-square.png)
 
 I created this repository based on a question in the openHAB [Forum](https://community.openhab.org/t/openhab-docker-or-not/74869/3).
 
