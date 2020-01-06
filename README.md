@@ -1,29 +1,58 @@
 # eze openHAB Docker Setup
 
-I created this repository based on a question in the openHAB [Forum](https://community.openhab.org/t/openhab-docker-or-not/74869/3). 
+![openHAB logo](https://www.openhab.org/logo-white.png)
+
+I created this repository based on a question in the openHAB [Forum](https://community.openhab.org/t/openhab-docker-or-not/74869/3).
 
 The goal was to create an easy to use setup with helper scripts.
 
 This Docker setup contains:
 
-* [openHAB](http://openhab.org/) 2.5.0
-* [InfluxDB](https://www.influxdata.com/)
-* [Node-RED](https://nodered.org/)
-* [Grafana](https://grafana.com/)
-* [Mosquitto](https://mosquitto.org/)
+- [openHAB](http://openhab.org/) 2.5.0
+- [InfluxDB](https://www.influxdata.com/)
+- [Node-RED](https://nodered.org/)
+- [Grafana](https://grafana.com/)
+- [Mosquitto](https://mosquitto.org/)
 
 ## Requirements
 
-* [Docker](https://docs.docker.com/)
-* [Docker Compose](https://docs.docker.com/compose/)
+- [Docker](https://docs.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
 
-## Note for RaspBerryPi Users
+---
 
-See docker-compose.yml
+## Get Started
 
-Update the node-red image.
+Clone this repository:
 
-## Helper Scripts
+```bash
+git clone git@github.com:BrutalBirdie/eze-openHAB-docker.git
+```
+
+Edit the `env.influxdb`, `env.grafana` and `.env` file.
+See [Important Files](#important-files) for more information about these files.
+
+Run
+
+```bash
+./start.sh
+```
+
+### RaspBerryPI extra steps
+
+On RaspBerryPi edit the `docker-compose.yml` and replace the node-red image with `nodered/node-red-docker:rpi`
+
+### Windows extra steps
+
+If you are on Windows remove the two lines commented in the `docker-compose.yml` for openHAB
+
+---
+
+## Important Files
+
+`env.influxdb`, `env.grafana` and `.env` contain important information like the password for influxdb, plugins for grafana and the USER_ID and GROUP_ID for the Docker Containers
+
+## Helper Scripts Explained
 
 ### Docker
 
