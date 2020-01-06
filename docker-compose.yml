@@ -15,6 +15,8 @@ services:
     environment:
       OPENHAB_HTTP_PORT: "8080"
       OPENHAB_HTTPS_PORT: "8443"
+      USER_ID: ${UID}
+      GROUP_ID: ${GID}
       EXTRA_JAVA_OPTS: "-Duser.timezone=Europe/Berlin"
     ports:
       - "8080:8080"
