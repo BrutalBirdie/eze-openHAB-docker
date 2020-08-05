@@ -2,7 +2,7 @@ version: "2.2"
 
 services:
   openhab:
-    image: "openhab/openhab:2.5.0"
+    image: "openhab/openhab:2.5.7"
     container_name: openhab
     restart: always
     network_mode: host
