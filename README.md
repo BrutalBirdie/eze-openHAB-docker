@@ -8,7 +8,7 @@ The goal was to create an easy to use setup with helper scripts.
 
 This Docker setup contains:
 
-- [openHAB](http://openhab.org/) 2.5.0
+- [openHAB](http://openhab.org/) 2.5.7
 - [InfluxDB](https://www.influxdata.com/)
 - [Node-RED](https://nodered.org/)
 - [Grafana](https://grafana.com/)
