@@ -74,4 +74,3 @@ services:
     volumes:
       - "${PWD}/mosquitto/conf:/mosquitto/config/"
       - "${PWD}/mosquitto/data/:/mosquitto/data/"
-      - "${PWD}/mosquitto/log/:/mosquitto/log/"
