@@ -53,7 +53,7 @@ services:
   nodered:
     # If you are running on RaspBerryPi change the image to
     # nodered/node-red-docker:rpi
-    image: nodered/node-red-docker:latest
+    image: nodered/node-red:latest
     container_name: nodered
     restart: always
     network_mode: host
